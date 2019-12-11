@@ -12,8 +12,17 @@ class ArticleDb {
         $this->pdo = $pdo;
     }
     
-    public function getArticleList() : array {
+    public function getTodayArticle() : array {
         $sth = $this->pdo->prepare("SELECT id, title, description FROM Article where DATE(releaseDate)=CURDATE();");
+        $sth->execute();
+        $result = $sth->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
+    public function getAllArticle()
+    {
+        $sql = "select * from Article;";
+        $sth = $this->pdo->prepare($sql);
         $sth->execute();
         $result = $sth->fetchAll(PDO::FETCH_ASSOC);
         return $result;
@@ -26,4 +35,17 @@ class ArticleDb {
         $result = $sth->fetch(PDO::FETCH_ASSOC);
         return $result;
     }
+
+    public function insertArticle($title, $description, $content, $author)
+    {
+        $sql = "inser into Article(title, description, content, author, releaseDate) values(:title, :description, :content, :author, CURRENT_TIMESTAMP())";
+        $sth = $this->pdo->prepare($sql);
+        $sth->bindValue(':title', $title);
+        $sth->bindValue(':description', $description);
+        $sth->bindValue(':content', $content);
+        $sth->bindValue(':author', $author);
+        $sth->execute();
+    }
+
+    
 }

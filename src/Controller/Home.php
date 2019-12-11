@@ -21,7 +21,7 @@ class Home implements ControllerInterface
 
     public function execute(ServerRequestInterface $request)
     {
-        $result = $this->articleDb->getArticleList();
+        $result = $this->articleDb->getTodayArticle();
         echo $this->plates->render('home', ['articleList' => $result]);
     }
 }
