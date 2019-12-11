@@ -13,7 +13,7 @@ class ArticleDb {
     }
     
     public function getTodayArticle() : array {
-        $sth = $this->pdo->prepare("SELECT id, title, description FROM Article where DATE(releaseDate)=CURDATE();");
+        $sth = $this->pdo->prepare("SELECT id, title, description FROM Article where DATE(releaseDate)=CURDATE() order by releaseDate DESC;");
         $sth->execute();
         $result = $sth->fetchAll(PDO::FETCH_ASSOC);
         return $result;
@@ -21,7 +21,7 @@ class ArticleDb {
 
     public function getAllArticle()
     {
-        $sql = "select * from Article;";
+        $sql = "SELECT * FROM Article order by releaseDate DESC;";
         $sth = $this->pdo->prepare($sql);
         $sth->execute();
         $result = $sth->fetchAll(PDO::FETCH_ASSOC);

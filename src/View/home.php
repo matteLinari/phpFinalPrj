@@ -5,7 +5,7 @@
 
 <?php foreach($articleList as $value): ?>
     <div>
-        <a href=""><h3><?= $this->e($value['title'])?></h3></a>
+        <a href="/articolo"><h3><?= $this->e($value['title'])?></h3></a>
         <p><?= $this->e($value['description'])?></p>
     </div>
 <?php endforeach; ?>
