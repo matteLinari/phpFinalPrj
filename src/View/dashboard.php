@@ -1,17 +1,20 @@
-
 <?php $this->layout('layout', ['title' => 'Dashboard']) ?>
 
 <h1>Dashboard</h1>
 
-<a href="">Inserisci nuovo articolo</a>
+<form action="">
+    <input type="submit" value="Inserisci nuovo articolo">
+</form>
 
 
 <h4>Articoli</h4>
-<?php foreach($articleList as $value): ?>
+<?php foreach ($articleList as $value) : ?>
     <div>
-        <h3><?= $this->e($value['id'])?></h3>
-        <p><?= $this->e($value['title'])?></p>
-        <a href="">Modifica</a>
+        <span><?= $this->e($value['id']) ?></span>
+        <span><?= $this->e($value['title']) ?></span>
+        <form action="">
+            <input type="submit" value="Modifica">
+        </form>
     </div>
+    <br>
 <?php endforeach; ?>
-

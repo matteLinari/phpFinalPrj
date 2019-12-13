@@ -1,6 +1,7 @@
 <?php
 use League\Plates\Engine;
 use Psr\Container\ContainerInterface;
+use SimpleMVC\Controller\ControllerLogin;
 
 return [
     'view_path' => 'src/View',
@@ -13,5 +14,9 @@ return [
     'password' => 'password',
     'PDO' => function(ContainerInterface $c){
         return new PDO($c->get('dsn'), $c->get('user'), $c->get('password'));
-    }    
+    },
+    
+    
+   
+    
 ];
