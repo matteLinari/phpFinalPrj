@@ -7,7 +7,7 @@ use League\Plates\Engine;
 use Psr\Http\Message\ServerRequestInterface;
 use SimpleMVC\Model\ArticleDb;
 
-class Dashboard implements ControllerInterface
+class CrudArticle implements ControllerInterface
 {
     protected $plates;
     protected $articleDb;
@@ -21,11 +21,12 @@ class Dashboard implements ControllerInterface
 
     public function execute(ServerRequestInterface $request)
     {
-        /*if(!isset($_SESSION['user'])){
-            header('Location: login');
-            exit();
-        }*/
-        $result = $this->articleDb->getAllArticle();
-        echo $this->plates->render('dashboard', ['articleList' => $result]);
+        if(!isset($_GET['id'])){
+           echo $this->plates->render('newArticle');
+        } else {
+            $result = $this->articleDb->getArticle($_GET['id']);
+            echo $this->plates->render('crudArticle', ['article' => $result]);
+        }
+        
     }
 }

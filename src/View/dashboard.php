@@ -2,18 +2,23 @@
 
 <h1>Dashboard</h1>
 
-<form action="">
+<form action="/crud-article" method="GET">
     <input type="submit" value="Inserisci nuovo articolo">
 </form>
 
 
-<h4>Articoli</h4>
+<h3>Articoli</h3>
 <?php foreach ($articleList as $value) : ?>
     <div>
-        <span><?= $this->e($value['id']) ?></span>
-        <span><?= $this->e($value['title']) ?></span>
-        <form action="">
+        <span><?= $this->e($value['Id']) ?></span>
+        <span><?= $this->e($value['Title']) ?></span>
+        <form action="/crud-article">
             <input type="submit" value="Modifica">
+            <input type="hidden" name="id" value="<?= $this->e($value["Id"])?>">
+        </form>
+        <form action="/crud-article">
+            <input type="submit" value="Elimina">
+            <input type="hidden" name="id" value="<?= $this->e($value["Id"])?>">
         </form>
     </div>
     <br>

@@ -20,12 +20,8 @@ class ControllerLogin implements ControllerInterface
         $this->userDb = $userDb;
     }
 
-    public function execute(ServerRequestInterface $request)
+    public function checkLogin($email, $password)
     {
-        session_start();
-
-        $email = $_POST["email"];
-        $password = $_POST["password"];
 
         if (empty($email) || empty($password)) {
             header($_SERVER["SERVER_PROTOCOL"] . "422 ");
@@ -44,13 +40,19 @@ class ControllerLogin implements ControllerInterface
             header($_SERVER["SERVER_PROTOCOL"] . "401 Unauthorized");
             print("Accesso negato");
             header('location: /');
+            
         }
         else{
             $_SESSION['user'] = $email;
             header('location: dashboard');
             
         }
-       
+    }
+
+    public function execute(ServerRequestInterface $request)
+    {
+        session_start();
+        $this->checkLogin($_POST["email"],$_POST["password"]);
         
     }
     

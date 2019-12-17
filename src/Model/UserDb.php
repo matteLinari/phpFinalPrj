@@ -17,7 +17,7 @@ class UserDb
 
     public function login($email, $password)
     {
-        $sql = 'select email from User where email = :email and password=:password';
+        $sql = 'select Mail from User where Mail = :email and Pass=:password';
         $sth = $this->pdo->prepare($sql);
         $sth->bindValue(':email', $email);
         $sth->bindValue(':password', $password);

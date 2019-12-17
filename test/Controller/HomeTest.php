@@ -7,13 +7,17 @@ use League\Plates\Engine;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ServerRequestInterface;
 use SimpleMVC\Controller\Home;
+use SimpleMVC\Model\ArticleDb;
+use PDO;
 
 final class HomeTest extends TestCase
 {
     public function setUp(): void
     {
+        $this->pdo = $this->createMock(PDO::class);
         $this->plates = new Engine('src/View');
-        $this->home = new Home($this->plates);
+        $this->articleDb = new ArticleDb($this->pdo);
+        $this->home = new Home($this->plates, $this->articleDb);
         $this->request = $this->getMockBuilder(ServerRequestInterface::class)->getMock();
     }
 

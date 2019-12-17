@@ -5,10 +5,12 @@
 
 <?php foreach($articleList as $value): ?>
     <div>
-        <a href="/article?id=<?= $this->e($value['id'])?>">
-            <h3><?= $this->e($value['title'])?></h3>
+        <a href="/article?id=<?= $this->e($value['Id'])?>">
+            <h2><?= $this->e($value['Title'])?></h2>
         </a>
-        <p><?= $this->e($value['description'])?></p>
+        <h4><?= $this->e($value['Description'])?></h4>
+        <p><?= $this->e($value['Author'])?></p>
+
     </div>
 <?php endforeach; ?>
 

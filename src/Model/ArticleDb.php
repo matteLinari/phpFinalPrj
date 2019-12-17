@@ -13,7 +13,7 @@ class ArticleDb {
     }
     
     public function getTodayArticle() : array {
-        $sth = $this->pdo->prepare("SELECT id, title, description FROM Article where DATE(releaseDate)=CURDATE() order by releaseDate DESC;");
+        $sth = $this->pdo->prepare("SELECT * FROM Article where DATE(InsDate)=CURDATE() order by InsDate DESC;");
         $sth->execute();
         $result = $sth->fetchAll(PDO::FETCH_ASSOC);
         return $result;
@@ -21,7 +21,7 @@ class ArticleDb {
 
     public function getAllArticle()
     {
-        $sql = "SELECT * FROM Article order by releaseDate DESC;";
+        $sql = "SELECT * FROM Article order by InsDate DESC;";
         $sth = $this->pdo->prepare($sql);
         $sth->execute();
         $result = $sth->fetchAll(PDO::FETCH_ASSOC);
@@ -29,7 +29,7 @@ class ArticleDb {
     }
 
     public function getArticle($id) {
-        $sth = $this->pdo->prepare("SELECT title, description, content FROM Article where id=:id");
+        $sth = $this->pdo->prepare("SELECT * FROM Article where Id=:id");
         $sth->bindValue(':id', $id);
         $sth->execute();
         $result = $sth->fetch(PDO::FETCH_ASSOC);
@@ -38,7 +38,7 @@ class ArticleDb {
 
     public function insertArticle($title, $description, $content, $author)
     {
-        $sql = "inser into Article(title, description, content, author, releaseDate) values(:title, :description, :content, :author, CURRENT_TIMESTAMP())";
+        $sql = "insert into Article(Title, Description, Content, Author, InsDate) values(:title, :description, :content, :author, CURRENT_TIMESTAMP())";
         $sth = $this->pdo->prepare($sql);
         $sth->bindValue(':title', $title);
         $sth->bindValue(':description', $description);
