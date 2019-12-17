@@ -6,7 +6,6 @@
     <input type="submit" value="Inserisci nuovo articolo">
 </form>
 
-
 <h3>Articoli</h3>
 <?php foreach ($articleList as $value) : ?>
     <div>
@@ -15,10 +14,13 @@
         <form action="/crud-article">
             <input type="submit" value="Modifica">
             <input type="hidden" name="id" value="<?= $this->e($value["Id"])?>">
+            <input type="hidden" name="modifyId">
+
         </form>
         <form action="/crud-article">
             <input type="submit" value="Elimina">
             <input type="hidden" name="id" value="<?= $this->e($value["Id"])?>">
+            <input type="hidden" name="deleteId">
         </form>
     </div>
     <br>

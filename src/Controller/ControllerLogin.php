@@ -16,15 +16,15 @@ class ControllerLogin implements ControllerInterface
 
     public function __construct(UserDb $userDb)
     {
-        
         $this->userDb = $userDb;
     }
 
     public function checkLogin($email, $password)
     {
+        session_start();
 
         if (empty($email) || empty($password)) {
-            header($_SERVER["SERVER_PROTOCOL"] . "422 ");
+            http_response_code(422);
             print("Email o Passwod mancanti");
             header('location: /');
             exit();
@@ -37,21 +37,21 @@ class ControllerLogin implements ControllerInterface
         }*/
 
         if(!$this->userDb->login($email, $password)) {
-            header($_SERVER["SERVER_PROTOCOL"] . "401 Unauthorized");
+            http_response_code(401);
             print("Accesso negato");
             header('location: /');
-            
+            exit();
         }
-        else{
-            $_SESSION['user'] = $email;
-            header('location: dashboard');
-            
-        }
+
+              
+        $_SESSION['user'] = $email;
+        print($_SESSION['user']);
+        //header('location: dashboard');      
+        
     }
 
     public function execute(ServerRequestInterface $request)
     {
-        session_start();
         $this->checkLogin($_POST["email"],$_POST["password"]);
         
     }

@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace SimpleMVC\Controller;
@@ -7,7 +8,7 @@ use League\Plates\Engine;
 use Psr\Http\Message\ServerRequestInterface;
 use SimpleMVC\Model\ArticleDb;
 
-class CrudArticle implements ControllerInterface
+class ModifyArticle implements ControllerInterface
 {
     protected $plates;
     protected $articleDb;
@@ -21,19 +22,12 @@ class CrudArticle implements ControllerInterface
 
     public function execute(ServerRequestInterface $request)
     {
-        if(!isset($_GET['id']))
-        {
-            echo $this->plates->render('newArticle');
-        }
-        else if(isset($_GET['modifyId'])) 
-        {
-            $result = $this->articleDb->getArticle($_GET['id']);
-            echo $this->plates->render('modifyArticle', ['article' => $result]);
-        } 
-        else if(isset($_GET['deleteId'])) {
-            //$result = $this->articleDb->deleteArticle($_GET['id']);
+        if(empty($_POST['title']) || empty($_POST['description']) || empty($_POST['content']) || empty($_POST['author'])){
+            echo($this->plates->render('modifyArticle'));
+            
+        } else {
+            //$this->articleDb->modifyArticle($_POST['id'], $_POST['title'], $_POST['description'], $_POST['content'], $_POST['author']);
             header('location: dashboard');
         }
-        
     }
 }

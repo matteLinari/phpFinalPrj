@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Quotidiano ITS</title>
-    <link rel="stylesheet" href="dashboard.css">
-  </head>
-  <body>
+
 	<div class="title-box">
 	<div class="site-title">
 		<a>ITS NEWS</a>
@@ -19,5 +12,3 @@
 		<a class="dashboard-link" href="/dashboard">Dashboard</a>
 		<a class="logout-link" href="/logout">Logout</a>
 	</div>
-  </body>
-</html>
