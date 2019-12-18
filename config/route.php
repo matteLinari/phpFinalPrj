@@ -10,6 +10,8 @@ return [
     'GET /crud-article' => Controller\CrudArticle::class,
     'POST /new-article' => Controller\NewArticle::class,
     'POST /modify-article' => Controller\ModifyArticle::class,
+    'GET /logout' => Controller\Logout::class,
+
 
 
 

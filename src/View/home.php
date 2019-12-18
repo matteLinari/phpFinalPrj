@@ -9,7 +9,7 @@
             <h2><?= $this->e($value['Title'])?></h2>
         </a>
         <h4><?= $this->e($value['Description'])?></h4>
-        <p><?= $this->e($value['Author'])?></p>
+        <p><?= $this->e($value['InsDate'])?></p>
 
     </div>
 <?php endforeach; ?>

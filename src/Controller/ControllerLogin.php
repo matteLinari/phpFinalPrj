@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace SimpleMVC\Controller;
 
-use League\Plates\Engine;
 use SimpleMVC\Model\UserDb;
 use Psr\Http\Message\ServerRequestInterface;
 
@@ -41,12 +40,10 @@ class ControllerLogin implements ControllerInterface
             print("Accesso negato");
             header('location: /');
             exit();
-        }
-
+        }   
               
         $_SESSION['user'] = $email;
-        print($_SESSION['user']);
-        //header('location: dashboard');      
+        header('location: dashboard');      
         
     }
 

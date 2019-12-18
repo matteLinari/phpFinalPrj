@@ -4,7 +4,7 @@
 		<a>ITS NEWS</a>
 	</div>
 	<div class="sub-title">
-		<a>News from around the world</a>
+		<a>CRUD article</a>
 	</div>
 	</div>
 	<div class="menu">

@@ -21,10 +21,10 @@ class Dashboard implements ControllerInterface
 
     public function execute(ServerRequestInterface $request)
     {
-        /*if(!isset($_SESSION['user'])){
+        if(!isset($_SESSION['user'])){
             header('Location: login');
             exit();
-        }*/
+        }
         $result = $this->articleDb->getAllArticle();
         echo $this->plates->render('dashboard', ['articleList' => $result]);
     }

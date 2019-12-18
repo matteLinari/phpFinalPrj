@@ -21,6 +21,11 @@ class CrudArticle implements ControllerInterface
 
     public function execute(ServerRequestInterface $request)
     {
+        if(!isset($_SESSION['user'])){
+            header('Location: login');
+            exit();
+        }
+        
         if(!isset($_GET['id']))
         {
             echo $this->plates->render('newArticle');
