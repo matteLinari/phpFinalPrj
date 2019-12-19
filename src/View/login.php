@@ -1,4 +1,5 @@
 <?php $this->layout('layout', ['title' => 'Login']) ?>
+<p><?= $this->e($msg)?></p>
 
 <div class="container-fluid" style="margin-top: 50;">
 <h1 class ="text-center">Login</h1></br></br></br>
@@ -18,7 +19,7 @@
     </div>
     <div class="form-group row">
         <div class="offset-sm-2 col-sm-10">
-            <input type="submit" value="Sign in" name="submit" class="btn btn-primary"/>
+            <input type="submit" value="Sign In" name="submit" class="btn btn-success"/>
         </div>
     </div>
 </form>

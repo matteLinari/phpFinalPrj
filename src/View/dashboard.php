@@ -1,5 +1,5 @@
 <?php $this->layout('layout', ['title' => 'Dashboard']) ?>
-<div class="container center">
+<div class="container text-center" style="margin-top: 50;">
     <h1>Dashboard</h1>
 </div>
 <div class="container center">

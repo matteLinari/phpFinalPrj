@@ -47,5 +47,17 @@ class ArticleDb {
         $sth->execute();
     }
 
+    public function modifyArticle($id, $title, $description, $content, $author)
+    {
+        $sql = "update Article set Title=:title, Description=:description, Content=:content, Author=:author, LastUpdate=CURRENT_TIMESTAMP() where Id=:id";
+        $sth = $this->pdo->prepare($sql);
+        $sth->bindValue(':id', $id);
+        $sth->bindValue(':title', $title);
+        $sth->bindValue(':description', $description);
+        $sth->bindValue(':content', $content);
+        $sth->bindValue(':author', $author);
+        $sth->execute();
+    }
+
     
 }
