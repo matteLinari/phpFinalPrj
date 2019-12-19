@@ -22,6 +22,11 @@ class ModifyArticle implements ControllerInterface
 
     public function execute(ServerRequestInterface $request)
     {
+        if(!isset($_SESSION['user'])){
+            header('Location: login');
+            exit();
+        }
+        
         if(empty($_POST['title']) || empty($_POST['description']) || empty($_POST['content']) || empty($_POST['author'])){
             echo $this->plates->render('modifyArticle', ['msg' => 'Compila tutti i campi']);
             
