@@ -11,6 +11,8 @@ return [
     'POST /new-article' => Controller\NewArticle::class,
     'POST /modify-article' => Controller\ModifyArticle::class,
     'GET /logout' => Controller\Logout::class,
+    'GET /401' => Controller\Error401::class,
+
 
 
 

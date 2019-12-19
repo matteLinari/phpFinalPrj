@@ -2,7 +2,7 @@
 <?php $this->layout('layout', ['title' => 'Home']) ?>
 
 <h1>Home page</h1>
-
+<p>Articoli del <?= date("d-m-y")?></p>
 <?php foreach($articleList as $value): ?>
     <div>
         <a href="/article?id=<?= $this->e($value['Id'])?>">

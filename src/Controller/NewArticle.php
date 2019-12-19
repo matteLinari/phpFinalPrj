@@ -23,7 +23,7 @@ class NewArticle implements ControllerInterface
     public function execute(ServerRequestInterface $request)
     {
         if(empty($_POST['title']) || empty($_POST['description']) || empty($_POST['content']) || empty($_POST['author'])){
-            echo($this->plates->render('newArticle'));
+            echo $this->plates->render('newArticle', ['msg' => 'Compila tutti i campi']);
             
         } else {
             $this->articleDb->insertArticle($_POST['title'], $_POST['description'], $_POST['content'], $_POST['author']);
