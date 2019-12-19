@@ -33,18 +33,19 @@ class UserDb
         $sth->bindValue(':email', $email);
         $sth->execute();
 
-        $result = $sth->fetchAll(PDO::FETCH_ASSOC);
+        $result = $sth->fetch(PDO::FETCH_ASSOC);
         $count = $sth->rowCount();     
             
-        echo($result[Pass]);
+        echo($result['Pass']);
         //comparePWD is a boolean
-        $comparePWD = password_verify($password, $result[Pass]);
+        $comparePWD = password_verify($password, $result['Pass']);
 
         if ($count == 0) {
-            return false;
-            
+            return false;     
         } else if($comparePWD){
            return true; //password is correct
+        } else {
+            return false;
         }
     }
 

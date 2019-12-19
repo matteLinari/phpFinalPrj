@@ -31,7 +31,7 @@ class ModifyArticle implements ControllerInterface
             echo $this->plates->render('modifyArticle', ['msg' => 'Compila tutti i campi']);
             
         } else {
-            //$this->articleDb->modifyArticle($_POST['id'], $_POST['title'], $_POST['description'], $_POST['content'], $_POST['author']);
+            $this->articleDb->modifyArticle($_POST['id'], $_POST['title'], $_POST['description'], $_POST['content'], $_POST['author']);
             header('location: dashboard');
         }
     }

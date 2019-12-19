@@ -38,7 +38,7 @@ class ArticleDb {
 
     public function insertArticle($title, $description, $content, $author)
     {
-        $sql = "insert into Article(Title, Description, Content, Author, InsDate) values(:title, :description, :content, :author, CURRENT_TIMESTAMP())";
+        $sql = "insert into Article(Title, Description, Content, Author, InsDate, LastUpdate) values(:title, :description, :content, :author, CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP())";
         $sth = $this->pdo->prepare($sql);
         $sth->bindValue(':title', $title);
         $sth->bindValue(':description', $description);
@@ -57,6 +57,13 @@ class ArticleDb {
         $sth->bindValue(':content', $content);
         $sth->bindValue(':author', $author);
         $sth->execute();
+    }
+
+    public function deleteArticle($id) {
+        $sth = $this->pdo->prepare("DELETE FROM Article where Id=:id");
+        $sth->bindValue(':id', $id);
+        $sth->execute();
+        
     }
 
     

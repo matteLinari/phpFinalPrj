@@ -8,4 +8,6 @@
     <p>Content:<?= $this->e($article['Content'])?></p>
     <br>
     <p>Author:<?= $this->e($article['Author'])?></p>
+    <p>Last update:<?= $this->e($article['LastUpdate'])?></p>
+
 </div>
