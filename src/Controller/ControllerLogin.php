@@ -4,28 +4,27 @@ declare(strict_types=1);
 
 namespace SimpleMVC\Controller;
 
+use League\Plates\Engine;
 use SimpleMVC\Model\UserDb;
 use Psr\Http\Message\ServerRequestInterface;
 
 
 class ControllerLogin implements ControllerInterface
 {
-    
+    protected $plates;
     protected $userDb;
 
-    public function __construct(UserDb $userDb)
+    public function __construct(Engine $plates,UserDb $userDb)
     {
         $this->userDb = $userDb;
+        $this->plates = $plates;
     }
 
     public function checkLogin($email, $password)
     {
-        session_start();
-
         if (empty($email) || empty($password)) {
             http_response_code(422);
-            print("Email o Passwod mancanti");
-            header('location: /');
+            echo $this->plates->render('login', ['msg' => 'Compila tutti i campi']);
             exit();
         }
 
@@ -36,21 +35,17 @@ class ControllerLogin implements ControllerInterface
         }*/
 
         if(!$this->userDb->login($email, $password)) {
-            http_response_code(401);
-            print("Accesso negato");
-            header('location: /');
+            header('location: 401');
             exit();
         }   
               
         $_SESSION['user'] = $email;
-        header('location: dashboard');      
-        
+        header('location: dashboard');         
     }
 
     public function execute(ServerRequestInterface $request)
     {
-        $this->checkLogin($_POST["email"],$_POST["password"]);
-        
+        $this->checkLogin($_POST["email"],$_POST["password"]); 
     }
     
 

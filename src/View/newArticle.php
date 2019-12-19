@@ -1,7 +1,7 @@
 <?php $this->layout('layout', ['title' => 'Nuovo Articolo']) ?>
 
 <h1>Inserisci nuovo articolo</h1>
-
+<p><?= $this->e($msg)?></p>
 <form action="new-article" method="POST">
     Titolo:<br>
     <input type="text" name="title"><br><br>

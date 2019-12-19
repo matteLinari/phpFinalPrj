@@ -1,7 +1,7 @@
 <?php $this->layout('layout', ['title' => 'Modifica Articolo']) ?>
 
 <h1>Modifica articolo</h1>
-
+<p><?= $this->e($msg)?></p>
 <form action="modify-article" method="POST">
     Titolo:<br>
     <input type="text" name="title" value="<?= $this->e($article['Title'])?>"><br><br>

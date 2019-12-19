@@ -1,5 +1,4 @@
 <?php
-
 declare(strict_types=1);
 
 namespace SimpleMVC\Controller;
@@ -7,7 +6,7 @@ namespace SimpleMVC\Controller;
 use League\Plates\Engine;
 use Psr\Http\Message\ServerRequestInterface;
 
-class Login implements ControllerInterface
+class Error401 implements ControllerInterface
 {
     protected $plates;
 
@@ -18,6 +17,7 @@ class Login implements ControllerInterface
 
     public function execute(ServerRequestInterface $request)
     {
-        echo $this->plates->render('login', ['msg' => '']);
+        http_response_code(401);
+        echo $this->plates->render('401');
     }
 }
