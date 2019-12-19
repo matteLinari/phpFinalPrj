@@ -15,12 +15,6 @@ return [
     'GET /logout' => Controller\Logout::class,
     'GET /401' => Controller\Error401::class,
 
-
-
-
-
-
-
     
 
 ];
