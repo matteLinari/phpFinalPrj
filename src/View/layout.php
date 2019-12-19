@@ -8,13 +8,14 @@
     
 </head>
 <body>
- <!-- 
+<!--
      style="background: url(http://www.its-ictpiemonte.it/wp-content/themes/its-site-theme-dist/assets/its_share_img@2x-1.jpg);
     no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
-    -o-background-size: cover;"
+    -o-background-size: cover;
+    color:grey;"
  -->
     
     <?php 
