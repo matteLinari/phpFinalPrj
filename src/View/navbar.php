@@ -1,14 +1,17 @@
-
-	<div class="title-box">
-		<div class="site-title container center">
-			<a>ITS NEWS</a>
-		</div>
-		<div class="sub-title container center">
-			<a>News from around the world</a>
-		</div>
-	</div>
-	<div class="menu container center">
-		<a class="home-link" href="/">Home</a>  	   
-		<a class="login-link" href="/login">Login</a>
-		<a class="register-link" href="/register">Register</a>
-	</div>
+<div>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-left">
+        <li><a class="home-link" href="/">Home</a></li>
+        <li><a class="news-link" href="/news">ITS news</a></li>
+        <li><a class="contact-link" href="/contact">Contact</a></li>
+        <li><a class="login-link" href="/login">Login</a></li>
+        <li><a class="register-link" href="/register">Register</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+</div>
