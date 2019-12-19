@@ -1,14 +1,15 @@
 <?php $this->layout('layout', ['title' => 'Dashboard']) ?>
-
-<h1>Dashboard</h1>
-
-<form action="/crud-article" method="GET">
-    <input type="submit" value="Inserisci nuovo articolo">
-</form>
-
+<div class="container center">
+    <h1>Dashboard</h1>
+</div>
+<div class="container center">
+    <form action="/crud-article" method="GET">
+        <input type="submit" value="Inserisci nuovo articolo">
+    </form>
+</div>
 <h3>Articoli</h3>
 <?php foreach ($articleList as $value) : ?>
-    <div>
+    <div class="conatiner center">
         <span><?= $this->e($value['Id']) ?></span>
         <span><?= $this->e($value['Title']) ?></span>
         <form action="/crud-article">
