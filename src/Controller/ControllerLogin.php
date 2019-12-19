@@ -28,12 +28,6 @@ class ControllerLogin implements ControllerInterface
             exit();
         }
 
-        /*if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            header($_SERVER["SERVER_PROTOCOL"] . "422 ");
-            print("Email non valida");
-            exit();
-        }*/
-
         if(!$this->userDb->login($email, $password)) {
             header('location: 401');
             exit();

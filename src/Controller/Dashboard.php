@@ -25,6 +25,7 @@ class Dashboard implements ControllerInterface
             header('Location: login');
             exit();
         }
+        
         $result = $this->articleDb->getAllArticle();
         echo $this->plates->render('dashboard', ['articleList' => $result]);
     }

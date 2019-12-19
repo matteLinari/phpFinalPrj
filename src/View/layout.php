@@ -23,6 +23,7 @@
     else
         echo $this->insert('navbarLogged');
     ?>
+    
     <?=$this->section('content')?>
 
 </body>

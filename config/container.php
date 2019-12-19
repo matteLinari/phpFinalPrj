@@ -11,7 +11,7 @@ return [
 
     'dsn' => 'mysql:dbname=Journal;host=127.0.0.1',
     'user' => 'journalDBA',
-    'password' => 'password',
+    'password' => 'ProgettoPHP2019?',
     'PDO' => function(ContainerInterface $c){
         return new PDO($c->get('dsn'), $c->get('user'), $c->get('password'));
     },
