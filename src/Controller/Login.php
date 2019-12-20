@@ -18,6 +18,6 @@ class Login implements ControllerInterface
 
     public function execute(ServerRequestInterface $request)
     {
-        echo $this->plates->render('login');
+        echo $this->plates->render('login', ['msg' => '']);
     }
 }

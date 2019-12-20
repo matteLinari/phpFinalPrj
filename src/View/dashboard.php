@@ -10,8 +10,8 @@
 <h3>Articoli</h3>
 <?php foreach ($articleList as $value) : ?>
     <div class="conatiner center">
-        <span><?= $this->e($value['Id']) ?></span>
-        <span><?= $this->e($value['Title']) ?></span>
+        <span>Id: <?= $this->e($value['Id']) ?></span>
+        <span>Titolo: <?= $this->e($value['Title']) ?></span>
         <form action="/crud-article">
             <input type="submit" value="Modifica">
             <input type="hidden" name="id" value="<?= $this->e($value["Id"])?>">

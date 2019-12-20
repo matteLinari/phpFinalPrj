@@ -23,4 +23,5 @@
         </div>
     </div>
 </form>
+<p>Non sei registrato? Vai alla <a href="/register">registrazione</a> </p>
 </div> 
