@@ -36,6 +36,7 @@ class Register implements ControllerInterface
             $this->controlLogin($_POST['mail']);
             
             $this->userDb->register($_POST['name'], $_POST['surname'], $_POST['mail'], $_POST['password']);
+            $_SESSION['user'] = $_POST['mail'];
             header('location: dashboard');
         }
     }

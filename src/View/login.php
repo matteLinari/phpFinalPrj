@@ -1,5 +1,4 @@
 <?php $this->layout('layout', ['title' => 'Login']) ?>
-<p><?= $this->e($msg)?></p>
 
 <div class="container-fluid" style="margin-top: 50;">
 <h1 class ="text-center">Login</h1></br></br></br>
@@ -24,4 +23,5 @@
         </div>
     </div>
 </form>
+<p>Non sei registrato? Vai alla <a href="/register">registrazione</a> </p>
 </div> 

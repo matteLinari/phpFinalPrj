@@ -3,6 +3,8 @@
 <h1>Modifica articolo</h1>
 <p><?= $this->e($msg)?></p>
 <form action="modify-article" method="POST">
+    Id:<br>
+    <input type="text" name="id" value="<?= $this->e($article['Id'])?>" readonly><br>
     Titolo:<br>
     <input type="text" name="title" value="<?= $this->e($article['Title'])?>"><br><br>
     Descrizione:<br>

@@ -28,25 +28,24 @@ class UserDb
 
     public function login($email, $password)
     {
-        $sql = 'select Mail from User where Mail = :email and Pass=:password';
+        $sql = 'select Mail, Pass from User where Mail = :email';
         $sth = $this->pdo->prepare($sql);
         $sth->bindValue(':email', $email);
-        $sth->bindValue(':password', $password);
         $sth->execute();
 
-        //$result = $sth->fetchAll(PDO::FETCH_ASSOC);
+        $result = $sth->fetch(PDO::FETCH_ASSOC);
         $count = $sth->rowCount();     
             
-        //echo($result['Pass']);
+        echo($result['Pass']);
         //comparePWD is a boolean
-        //$comparePWD = password_verify($password, $result['Pass']);
-        //var_dump($comparePWD);
-        //echo($comparePWD);
+        $comparePWD = password_verify($password, $result['Pass']);
+
         if ($count == 0) {
-            return false;
-            
-        } else {
+            return false;     
+        } else if($comparePWD){
            return true; //password is correct
+        } else {
+            return false;
         }
     }
 
@@ -57,7 +56,7 @@ class UserDb
         $sth->bindValue(':email', $email);
         $sth->execute();
         $result = $sth->fetch(PDO::FETCH_ASSOC);
-        return $result;
+        return $result['Pass'];
     }
 
     public function isUserNew($email)

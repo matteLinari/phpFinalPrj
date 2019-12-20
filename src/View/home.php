@@ -3,7 +3,7 @@
 
 <div class="container text-center" style="margin-top: 50;">
     <h1>Home page</h1>
-    <p>Articoli del <?= date("d-m-y")?></p>
+    <h4>Articoli del <?= date("d-m-y")?></h4>
     <?php foreach($articleList as $value): ?>
         <div>
             <a href="/article?id=<?= $this->e($value['Id'])?>">

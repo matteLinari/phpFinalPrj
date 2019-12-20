@@ -36,7 +36,7 @@ class CrudArticle implements ControllerInterface
             echo $this->plates->render('modifyArticle', ['article' => $result]);
         } 
         else if(isset($_GET['deleteId'])) {
-            //$result = $this->articleDb->deleteArticle($_GET['id']);
+            $result = $this->articleDb->deleteArticle($_GET['id']);
             header('location: dashboard');
         }
         
